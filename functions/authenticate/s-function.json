@@ -25,6 +25,9 @@
         "400": {
           "statusCode": "400"
         },
+        "401": {
+          "statusCode": "401"
+        },
         "default": {
           "statusCode": "200",
           "responseParameters": {
@@ -37,7 +40,7 @@
             "application/json;charset=UTF-8": "Empty"
           },
           "responseTemplates": {
-            "application/json;charset=UTF-8": "Empty"
+            "application/json;charset=UTF-8": "{}"
           }
         }
       }
