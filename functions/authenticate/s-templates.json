@@ -1,5 +1,5 @@
 {
-  "resourceRequestTemplate": {
+  "authenticationRequestTemplate": {
     "application/json": {
 
       "sourceIp": "$context.identity.sourceIp",
@@ -11,8 +11,6 @@
       "userArn": "$context.identity.userArn",
       "httpMethod": "$context.httpMethod",
 
-      "collection": "$input.params().path.get('collection')",
-      "id": "$input.params().path.get('id')",
       "query": "$input.params().querystring",
       "body": "$input.json('$')"
 

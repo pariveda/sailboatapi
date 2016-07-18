@@ -33,9 +33,8 @@ Make sure you have your aws cli setup and profile key and secret configured (or 
 sls project init
 ```
 
-Finally, deploy your functions and endpoints:
+Deploy your functions and endpoints to the stage that you created in the last step, and test:
 ```
 sls dash deploy
 ```
-
 
