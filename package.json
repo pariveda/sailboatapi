@@ -1,0 +1,14 @@
+{
+  "name": "serverless-apigateway-lambda-starter",
+  "version": "0.2.1",
+  "description": "Serverless Framework API project example using AWS APIGateway, Lambda and Dyanmodb.",
+  "author": {
+    "name": "Serverless.com, ParivedaSolutions.com"
+  },
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "serverless-optimizer-plugin": "^2.0.0"
+  },
+  "scripts": {}
+}

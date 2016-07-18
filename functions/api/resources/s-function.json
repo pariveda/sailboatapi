@@ -1,0 +1,250 @@
+{
+  "name": "resources",
+  "runtime": "nodejs4.3",
+  "description": "Defines CRUD operations for project resources",
+  "customName": false,
+  "customRole": false,
+  "handler": "resources/handler.handler",
+  "timeout": 6,
+  "memorySize": 1024,
+  "authorizer": {},
+  "custom": {
+    "excludePatterns": []
+  },
+  "endpoints": [
+    {
+      "path": "resources/{collection}",
+      "method": "POST",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": "$${resourceRequestTemplate}",
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {
+            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,Cache-Control,x-requested-with'",
+            "method.response.header.Access-Control-Allow-Methods": "'GET, POST, PUT, DELETE, OPTIONS'",
+            "method.response.header.Access-Control-Allow-Origin": "'*'"
+          },
+          "responseModels": {
+            "application/json;charset=UTF-8": "Empty"
+          },
+          "responseTemplates": {
+            "application/json;charset=UTF-8": ""
+          }
+        }
+      }
+    },
+    {
+      "path": "resources/{collection}",
+      "method": "GET",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": "$${resourceRequestTemplate}",
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {
+            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,Cache-Control,x-requested-with'",
+            "method.response.header.Access-Control-Allow-Methods": "'GET, POST, PUT, DELETE, OPTIONS'",
+            "method.response.header.Access-Control-Allow-Origin": "'*'"
+          },
+          "responseModels": {
+            "application/json;charset=UTF-8": "Empty"
+          },
+          "responseTemplates": {
+            "application/json;charset=UTF-8": ""
+          }
+        }
+      }
+    },
+    {
+      "path": "resources/{collection}/{id}",
+      "method": "GET",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": "$${resourceRequestTemplate}",
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {
+            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,Cache-Control,x-requested-with'",
+            "method.response.header.Access-Control-Allow-Methods": "'GET, POST, PUT, DELETE, OPTIONS'",
+            "method.response.header.Access-Control-Allow-Origin": "'*'"
+          },
+          "responseModels": {
+            "application/json;charset=UTF-8": "Empty"
+          },
+          "responseTemplates": {
+            "application/json;charset=UTF-8": ""
+          }
+        }
+      }
+    },
+    {
+      "path": "resources/{collection}/{id}",
+      "method": "PUT",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": "$${resourceRequestTemplate}",
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {
+            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,Cache-Control,x-requested-with'",
+            "method.response.header.Access-Control-Allow-Methods": "'GET, POST, PUT, DELETE, OPTIONS'",
+            "method.response.header.Access-Control-Allow-Origin": "'*'"
+          },
+          "responseModels": {
+            "application/json;charset=UTF-8": "Empty"
+          },
+          "responseTemplates": {
+            "application/json;charset=UTF-8": ""
+          }
+        }
+      }
+    },
+    {
+      "path": "resources/{collection}/{id}",
+      "method": "DELETE",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": "$${resourceRequestTemplate}",
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {
+            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,Cache-Control,x-requested-with'",
+            "method.response.header.Access-Control-Allow-Methods": "'GET, POST, PUT, DELETE, OPTIONS'",
+            "method.response.header.Access-Control-Allow-Origin": "'*'"
+          },
+          "responseModels": {
+            "application/json;charset=UTF-8": "Empty"
+          },
+          "responseTemplates": {
+            "application/json;charset=UTF-8": ""
+          }
+        }
+      }
+    },
+    {
+      "path": "resources",
+      "method": "OPTIONS",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": {
+        "application/json": "\"statusCode\": 200"
+      },
+      "responses": {
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {
+            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,Cache-Control,x-requested-with'",
+            "method.response.header.Access-Control-Allow-Methods": "'GET, POST, PUT, DELETE, OPTIONS'",
+            "method.response.header.Access-Control-Allow-Origin": "'*'"
+          },
+          "responseModels": {},
+          "responseTemplates": {
+            "application/json": ""
+          }
+        }
+      }
+    },
+    {
+      "path": "resources/{collection}",
+      "method": "OPTIONS",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": {
+        "application/json": "\"statusCode\": 200"
+      },
+      "responses": {
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {
+            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,Cache-Control,x-requested-with'",
+            "method.response.header.Access-Control-Allow-Methods": "'GET, POST, PUT, DELETE, OPTIONS'",
+            "method.response.header.Access-Control-Allow-Origin": "'*'"
+          },
+          "responseModels": {},
+          "responseTemplates": {
+            "application/json": ""
+          }
+        }
+      }
+    },
+    {
+      "path": "resources/{collection}/{id}",
+      "method": "OPTIONS",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": {
+        "application/json": "\"statusCode\": 200"
+      },
+      "responses": {
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {
+            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,Cache-Control,x-requested-with'",
+            "method.response.header.Access-Control-Allow-Methods": "'GET, POST, PUT, DELETE, OPTIONS'",
+            "method.response.header.Access-Control-Allow-Origin": "'*'"
+          },
+          "responseModels": {},
+          "responseTemplates": {
+            "application/json": ""
+          }
+        }
+      }
+    }
+  ],
+  "events": [],
+  "environment": {
+    "SERVERLESS_PROJECT": "${project}",
+    "SERVERLESS_STAGE": "${stage}",
+    "SERVERLESS_REGION": "${region}",
+    "RESOURCES_TABLE_NAME": "${resourcesTableName}"
+  },
+  "vpc": {
+    "securityGroupIds": [],
+    "subnetIds": []
+  }
+}
