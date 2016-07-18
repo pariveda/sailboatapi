@@ -31,16 +31,15 @@
         "default": {
           "statusCode": "200",
           "responseParameters": {
-            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,Cache-Control,x-requested-with'",
+            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,Cache-Control,x-requested-with'",
             "method.response.header.Access-Control-Allow-Methods": "'GET, POST, PUT, DELETE, OPTIONS'",
             "method.response.header.Access-Control-Allow-Origin": "'*'",
-            "method.response.header.Set-Cookie": "integration.response.body.Cookie"
           },
           "responseModels": {
             "application/json;charset=UTF-8": "Empty"
           },
           "responseTemplates": {
-            "application/json;charset=UTF-8": "{}"
+            "application/json;charset=UTF-8": ""
           }
         }
       }
@@ -60,7 +59,7 @@
         "default": {
           "statusCode": "200",
           "responseParameters": {
-            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,Cache-Control,x-requested-with'",
+            "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,Cache-Control,x-requested-with'",
             "method.response.header.Access-Control-Allow-Methods": "'GET, POST, PUT, DELETE, OPTIONS'",
             "method.response.header.Access-Control-Allow-Origin": "'*'"
           },

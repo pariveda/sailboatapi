@@ -23,14 +23,9 @@ module.exports.handler = function(event, context, cb) {
         }
     };
     // TODO: Update to get secret signing string from env
-    var access_token = jwt.sign(payload, "mySuperSecretStringHere", { // use process.env.SECRET in production!
+    var access_token = jwt.sign(payload, "process.env.SECRET", {
         expiresIn: 60 * 60 * 12 // 12 hours
     });
 
-    // Create set-cookie header for return
-    var date = new Date();
-    date.setTime(+ date + (100 * 60 * 60 * 12)); // 12 hours
-    var cookieString = "X-Api-Key="+access_token+"; expires="+date.toGMTString()+";";
-
-    return cb(null, {"Cookie": cookieString});
+    return cb(null, {"token": access_token});
 };
