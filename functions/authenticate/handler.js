@@ -4,7 +4,6 @@ var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 
 module.exports.handler = function(event, context, cb) {
-
     // Check username and pass
     var requestUsername = event.body.username;
     var requestPassword = event.body.password;

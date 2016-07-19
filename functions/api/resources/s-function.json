@@ -16,10 +16,12 @@
       "path": "resources/{collection}",
       "method": "POST",
       "type": "AWS",
-      "authorizationType": "none",
-      "authorizerFunction": false,
+      "authorizationType": "custom",
+      "authorizerFunction": "authorize",
       "apiKeyRequired": false,
-      "requestParameters": {},
+      "requestParameters": {
+        "integration.request.path.Authorization": "method.request.header.Authorization"
+      },
       "requestTemplates": "$${resourceRequestTemplate}",
       "responses": {
         "400": {
@@ -48,10 +50,12 @@
       "path": "resources/{collection}",
       "method": "GET",
       "type": "AWS",
-      "authorizationType": "none",
-      "authorizerFunction": false,
+      "authorizationType": "custom",
+      "authorizerFunction": "authorize",
       "apiKeyRequired": false,
-      "requestParameters": {},
+      "requestParameters": {
+        "integration.request.path.Authorization": "method.request.header.Authorization"
+      },
       "requestTemplates": "$${resourceRequestTemplate}",
       "responses": {
         "400": {
@@ -80,10 +84,12 @@
       "path": "resources/{collection}/{id}",
       "method": "GET",
       "type": "AWS",
-      "authorizationType": "none",
-      "authorizerFunction": false,
+      "authorizationType": "custom",
+      "authorizerFunction": "authorize",
       "apiKeyRequired": false,
-      "requestParameters": {},
+      "requestParameters": {
+        "integration.request.path.Authorization": "method.request.header.Authorization"
+      },
       "requestTemplates": "$${resourceRequestTemplate}",
       "responses": {
         "400": {
@@ -112,10 +118,12 @@
       "path": "resources/{collection}/{id}",
       "method": "PUT",
       "type": "AWS",
-      "authorizationType": "none",
-      "authorizerFunction": false,
+      "authorizationType": "custom",
+      "authorizerFunction": "authorize",
       "apiKeyRequired": false,
-      "requestParameters": {},
+      "requestParameters": {
+        "integration.request.path.Authorization": "method.request.header.Authorization"
+      },
       "requestTemplates": "$${resourceRequestTemplate}",
       "responses": {
         "400": {
@@ -144,10 +152,12 @@
       "path": "resources/{collection}/{id}",
       "method": "DELETE",
       "type": "AWS",
-      "authorizationType": "none",
-      "authorizerFunction": false,
+      "authorizationType": "custom",
+      "authorizerFunction": "authorize",
       "apiKeyRequired": false,
-      "requestParameters": {},
+      "requestParameters": {
+        "integration.request.path.Authorization": "method.request.header.Authorization"
+      },
       "requestTemplates": "$${resourceRequestTemplate}",
       "responses": {
         "400": {
