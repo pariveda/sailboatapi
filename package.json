@@ -1,11 +1,11 @@
 {
-  "name": "serverless-apigateway-lambda-starter",
+  "name": "Sailboat API",
   "version": "0.2.1",
   "description": "Serverless Framework API project example using AWS APIGateway, Lambda and Dyanmodb.",
   "author": {
-    "name": "Serverless.com, ParivedaSolutions.com"
+    "name": "Serverless.com, dan.hogue@parivedasolutions.com"
   },
-  "license": "MIT",
+  "license": "Apache 2.0",
   "private": false,
   "dependencies": {
     "serverless-optimizer-plugin": "^2.0.0"
