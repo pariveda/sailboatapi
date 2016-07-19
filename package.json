@@ -1,6 +1,6 @@
 {
-  "name": "Sailboat API",
-  "version": "0.2.1",
+  "name": "sailboatapi",
+  "version": "0.1.0",
   "description": "Serverless Framework API project example using AWS APIGateway, Lambda and Dyanmodb.",
   "author": {
     "name": "Serverless.com, dan.hogue@parivedasolutions.com"

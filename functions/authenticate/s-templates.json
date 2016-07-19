@@ -1,7 +1,6 @@
 {
   "authenticationRequestTemplate": {
     "application/json": {
-
       "sourceIp": "$context.identity.sourceIp",
       "userAgent": "$context.identity.userAgent",
       "accountId": "$context.identity.accountId",
@@ -10,10 +9,8 @@
       "user": "$context.identity.user",
       "userArn": "$context.identity.userArn",
       "httpMethod": "$context.httpMethod",
-
       "query": "$input.params().querystring",
       "body": "$input.json('$')"
-
     }
   }
 }
