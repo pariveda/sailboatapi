@@ -2,8 +2,10 @@
 
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 
-Serverless Framework API project example using AWS APIGateway, Lambda and Dyanmodb. Demonstrates a REST API with full CRUD
-functionality and JWT token endpoint protection.
+Serverless Framework API project example using AWS APIGateway, Lambda and Dyanmodb. Demonstrates a REST API with full CRUD functionality and JWT token endpoint protection.
+
+Built to be used with https://github.com/pariveda/s3-hosted-static-website-example as a serverless frontend allowing 
+a complete serverless architecture. 
 
 This template project was built off of the Serverless starter project located here: https://github.com/serverless/serverless-starter.
 
