@@ -2,8 +2,7 @@
 
 Serverless Framework API project example using AWS APIGateway, Lambda and Dyanmodb. Demonstrates a REST API with full CRUD functionality and JWT token endpoint protection.
 
-Built to be used with https://github.com/pariveda/s3-hosted-static-website-example as a serverless frontend allowing 
-a complete serverless architecture. 
+Built to be used with https://github.com/pariveda/sailboat as a serverless frontend allowing a complete serverless architecture. 
 
 This template project was built off of the Serverless starter project located here: https://github.com/serverless/serverless-starter.
 
@@ -16,7 +15,7 @@ npm install serverless -g
 
 Clone the project from github:
 ```
-git clone https://github.com/pariveda/serverless-apigateway-lambda-starter.git
+git clone https://github.com/pariveda/sailboatapi.git
 ```
 
 Install project dependencies via npm in project root and in functions/api/libs:
