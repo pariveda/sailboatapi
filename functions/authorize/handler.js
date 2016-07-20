@@ -8,6 +8,7 @@ exports.handler = function(event, context) {
     }
     token = token[1];
 
+    // TODO: Update to get secret signing string from env
     jwt.verify(token, "process.env.SECRET_TOKEN_SIGNING_STRING", function(err, decoded) {
         if (err) {
             context.fail("Unauthorized");
