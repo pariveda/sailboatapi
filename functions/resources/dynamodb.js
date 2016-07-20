@@ -2,27 +2,27 @@ var AWS = require("aws-sdk");
 var docClient = new AWS.DynamoDB.DocumentClient();
 var uuid = require("node-uuid");
 
-module.exports.create = function(event, cb) {
-    event.body["collection"] = event.collection;
-    event.body["id"] = "" + uuid.v4();
+module.exports.create = function(collection, body, cb) {
+    body["collection"] = collection;
+    body["id"] = "" + uuid.v4();
     var params = {
         TableName: process.env.RESOURCES_TABLE_NAME,
-        Item: event.body
+        Item: body
     };
-    docClient.put(params, function(err, data) {
+    docClient.put(params, function(err, _) {
         if (err) {
             return cb(err, null)
         }
-        return cb(null, {"Item":event.body});
+        return cb(null, {"Item":body});
     });
 };
 
-module.exports.retrieve = function(event, cb) {
+module.exports.retrieve = function(collection, id, cb) {
     var params = {
         TableName: process.env.RESOURCES_TABLE_NAME,
         Key: {
-            "collection": event.collection,
-            "id": event.id
+            "collection": collection,
+            "id": id
         }
     };
     docClient.get(params, function(err, data) {
@@ -33,7 +33,7 @@ module.exports.retrieve = function(event, cb) {
     });
 };
 
-module.exports.retrieveMultiple = function(event, cb) {
+module.exports.retrieveMultiple = function(collection, cb) {
     var params = {
         TableName: process.env.RESOURCES_TABLE_NAME,
         FilterExpression: "#k = :v",
@@ -41,7 +41,7 @@ module.exports.retrieveMultiple = function(event, cb) {
             "#k": "collection"
         },
         ExpressionAttributeValues: {
-            ":v": event.collection
+            ":v": collection
         }
     };
     docClient.scan(params, function onScan(err, data) {
@@ -52,11 +52,11 @@ module.exports.retrieveMultiple = function(event, cb) {
     });
 };
 
-module.exports.update = function(event, cb) {
-    var updateValues = event.body;
+module.exports.update = function(collection, id, body, cb) {
+    var updateValues = body;
 
-    updateValues.collection = event.collection;
-    updateValues.id = event.id;
+    updateValues.collection = collection;
+    updateValues.id = id;
 
     var currentValues = {};
     var params = {
@@ -82,7 +82,7 @@ module.exports.update = function(event, cb) {
             TableName: process.env.RESOURCES_TABLE_NAME,
             Item: currentValues
         };
-        docClient.put(params, function(err, data) {
+        docClient.put(params, function(err, _) {
             if (err) {
                 return cb(err, null)
             }
@@ -91,19 +91,19 @@ module.exports.update = function(event, cb) {
     });
 };
 
-module.exports.delete = function(event, cb) {
+module.exports.delete = function(collection, id, cb) {
     var params = {
         TableName: process.env.RESOURCES_TABLE_NAME,
         Key: {
-            "collection": event.collection,
-            "id": event.id
+            "collection": collection,
+            "id": id
         }
     };
-    docClient.delete(params, function(err, data) {
+    docClient.delete(params, function(err, _) {
         if (err) {
             return cb(err, null);
         }
-        return cb(null, {"Item":{id:event.id}});
+        return cb(null, {"Item":params.Key});
     });
 };
 

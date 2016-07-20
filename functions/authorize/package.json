@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "bcryptjs": "^2.3.0",
     "jsonwebtoken": "^7.1.6"
   }
 }

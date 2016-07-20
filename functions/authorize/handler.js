@@ -1,4 +1,5 @@
-console.log('Loading function');
+
+var jwt = require('jsonwebtoken');
 
 exports.handler = function(event, context) {
 
@@ -8,6 +9,15 @@ exports.handler = function(event, context) {
     var token = event.authorizationToken;
 
     // Call oauth provider, crack jwt token, etc.
+    jwt.verify(token, "process.env.SECRET", function(err, decoded) {
+        if (err) {
+            console.log("error decoding jwt token");
+            console.log(err);
+        } else {
+            console.log("decoded jwt token");
+            console.log(decoded);
+        }
+    });
 
     var result = 'allow';
 

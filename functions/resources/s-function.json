@@ -4,7 +4,7 @@
   "description": "Defines CRUD operations for project resources",
   "customName": false,
   "customRole": false,
-  "handler": "resources/handler.handler",
+  "handler": "handler.handler",
   "timeout": 6,
   "memorySize": 1024,
   "authorizer": {},

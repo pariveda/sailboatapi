@@ -1,24 +1,24 @@
 'use strict';
 
-var lib = require('../libs/index');
+var db = require('dynamodb');
 
 module.exports.handler = function(event, context, cb) {
   switch(event.httpMethod) {
     case 'POST':
-      lib.create(event, cb);
+      db.create(event.collection, event.body, cb);
       break;
     case 'GET':
       if (event.id) {
-        lib.retrieve(event, cb);
+        db.retrieve(event.collection, event.id, cb);
       } else {
-        lib.retrieveMultiple(event, cb);
+        db.retrieveMultiple(event.collection, cb);
       }
       break;
     case 'PUT':
-      lib.update(event, cb);
+      db.update(event.collection, event.id, event.body, cb);
       break;
     case 'DELETE':
-      lib.delete(event, cb);
+      db.delete(event.collection, event.id, cb);
       break;
     default:
       return cb("Error, unsupported endpoint http method: " + event.httpMethod, "whaaaaaat?");
