@@ -1,6 +1,10 @@
 console.log('Loading function');
 
 exports.handler = function(event, context) {
+
+    console.log('Client token: ' + event.authorizationToken);
+    console.log('Method ARN: ' + event.methodArn);
+
     var token = event.authorizationToken;
 
     // Call oauth provider, crack jwt token, etc.
@@ -9,11 +13,10 @@ exports.handler = function(event, context) {
 
     switch (result) {
         case 'allow':
-            console.log("allow");
-            context.succeed(generatePolicy('user', 'Allow', event.methodArn));
+            context.succeed(generatePolicy('user', 'Allow', 'arn:aws:execute-api:us-west-2:280151647364:fsapgttgb6/dev/*'));
             break;
         case 'deny':
-            context.succeed(generatePolicy('user', 'Deny', event.methodArn));
+            context.succeed(generatePolicy('user', 'Deny', 'arn:aws:execute-api:us-west-2:280151647364:fsapgttgb6/dev/*'));
             break;
         case 'unauthorized':
             context.fail("Unauthorized");
@@ -24,18 +27,18 @@ exports.handler = function(event, context) {
 };
 
 var generatePolicy = function(principalId, effect, resource) {
-    var authResponse = {};
-    authResponse.principalId = principalId;
+    var authResponse = {
+        'principalId':principalId
+    };
     if (effect && resource) {
-        var policyDocument = {};
-        policyDocument.Version = '2012-10-17'; // default version
-        policyDocument.Statement = [];
-        var statementOne = {};
-        statementOne.Action = 'execute-api:Invoke'; // default action
-        statementOne.Effect = effect;
-        statementOne.Resource = resource;
-        policyDocument.Statement[0] = statementOne;
-        authResponse.policyDocument = policyDocument;
+        authResponse.policyDocument = {
+            'Version': '2012-10-17',
+            'Statement': [{
+                Action: 'execute-api:Invoke',
+                Effect: effect,
+                Resource: resource
+            }]
+        };
     }
     return authResponse;
 };
