@@ -2,6 +2,7 @@
 var jwt = require('jsonwebtoken');
 
 exports.handler = function(event, context) {
+    console.log("attempting authorization");
     var token = event.authorizationToken.split(" ");
     if (token[0] !== "Bearer" || !token[1]) {
         throw "Error: Bearer token not in expected format";
@@ -20,6 +21,7 @@ exports.handler = function(event, context) {
                     Statement: decoded.scopes
                 }
             };
+            console.log("authorized");
             context.succeed(authResponse);
         }
     });

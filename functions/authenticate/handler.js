@@ -18,7 +18,7 @@ module.exports.handler = function(event, context, cb) {
             {
                 Action: 'execute-api:Invoke',
                 Effect: 'Allow',
-                Resource: 'arn:aws:execute-api:us-west-2:280151647364:fsapgttgb6/dev/*'
+                Resource: 'arn:aws:execute-api:us-west-2:280151647364:fsapgttgb6/*'
             }
         ]
     };
