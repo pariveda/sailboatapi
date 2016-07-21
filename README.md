@@ -18,12 +18,14 @@ Clone the project from github:
 git clone https://github.com/pariveda/sailboatapi.git
 ```
 
-Install project dependencies via npm in project root and in functions/api/libs:
+Install project dependencies via npm in project root and in functions/:
 ```
 npm install
-cd functions/api/libs
+cd functions/authenticate
 npm install
-cd ../../authenticate
+cd ../authorize
+npm install
+cd ../resources
 npm install
 ```
 
